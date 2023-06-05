@@ -1,0 +1,33 @@
+<div class="container p-5">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="card">
+                <div class="card-header">
+                    <button class="btn btn-primary" (click)="navigatoToWorkerForm()" >Add Worker</button>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Competence</th>
+                            <th>Wage</th>
+                            <th>Status</th>
+                            <th>Task</th>
+                        </tr>
+                        <tbody>    
+                            <tr *ngFor="let w of workers">
+                                <td>{{w.id}}</td>
+                                <td>{{w.name}}</td>
+                                <td>{{w.competence}}</td>
+                                <td>{{w.wage}}</td>
+                                <td>{{w.status}}</td>
+                                <td *ngIf="w.task">{{w.task.id}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

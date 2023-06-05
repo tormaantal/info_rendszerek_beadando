@@ -1,0 +1,19 @@
+INSERT INTO `job`(`id`, `title`) VALUES
+(1, 'Henger'),
+(2, 'Kocka'),
+(3, 'Rúd');
+
+INSERT INTO `machine`(`id`, `title`) VALUES
+(1, 'CNC marógép'),
+(2, 'CNC eszterga'),
+(3, 'mérőgép');
+
+INSERT INTO `worker`(`id`, `name`, `competence`, `wage`, `status`) VALUES
+(1, 'Kiss András', 'CNC gépkezelő', 2500, 'szabad'),
+(2, 'Nagy Béla', 'CNC maró', 3000, 'dolgozik'),
+(3, 'Közepes Lajos', 'mérő', 1500, 'szabadságon');
+
+INSERT INTO `task`(`id`, `title`, `jobId`) VALUES 
+(1, 'marás', 1),
+(2, 'esztergálás', 2),
+(3, 'mérés', 3);

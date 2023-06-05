@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+                {{ errorMessage }}
+            </div>
+            <form [formGroup]="workerForm">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" formControlName="name">
+                <div class="text-danger" *ngIf="name!.invalid && (name!.dirty || name!.touched)">
+                    <small>Name is required.</small>
+                </div>
+                <label for="competence">Competence</label>
+                <input class="text" class="form-control" id="competence" formControlName="competence">
+                <label for="wage">Wage</label>
+                <input class="number" class="form-control" id="wage" formControlName="wage">
+                <label for="status">Status</label>
+                <select class="form-select" id="status" formControlName="status">
+                    <option value="szabadságon">szabadságon</option>
+                    <option value="dolgozik">dolgozik</option>
+                    <option value="szabad">szabad</option>
+                  </select>
+                <div class="text-danger" *ngIf="status!.invalid && (status!.dirty || status!.touched)">
+                    <small>Status is required.</small>
+                </div>
+                <label for="task">Task</label>
+                <select class="form-control" name="task" id="task" multiple formControlName="task"
+                    [compareWith]="compareTask">
+                    <option [ngValue]="task" *ngFor="let task of tasks">{{ task.title }}</option>
+                </select>
+                <button class="btn btn-primary mt-2" (click)="createWorker()" [disabled]="workerForm.invalid">Save Worker</button>
+            </form>
+        </div>
+    </div>
+    
+</div>

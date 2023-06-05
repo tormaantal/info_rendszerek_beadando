@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-md-6">
+        <input class="form-control" [(ngModel)]="newTaskTitle">
+        <button class="btn btn-primary" (click)="createTask()">Add task</button>
+    </div>
+    <div class="col-md-6">
+        <ul>
+            <li *ngFor="let task of tasks">
+                {{ task.title }}
+                <button class="btn btn-sm btn-danger" (click)="deleteTask(task.id)">Delete</button>
+            </li>
+        </ul>
+    </div>
+</div>
